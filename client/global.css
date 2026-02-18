@@ -1,0 +1,192 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Dark Premium Theme for AI Smart Fashion Ecosystem
+   * Colors are expressed as HSL values for tailwindcss compatibility
+   */
+  :root {
+    /* Dark base - charcoal/black */
+    --background: 240 20% 8%;
+    --foreground: 210 40% 98%;
+
+    /* Card backgrounds - slightly lighter than background */
+    --card: 240 15% 12%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popover */
+    --popover: 240 15% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary - Purple gradient */
+    --primary: 270 85% 55%;
+    --primary-foreground: 240 20% 8%;
+
+    /* Secondary - Blue accent */
+    --secondary: 200 90% 50%;
+    --secondary-foreground: 240 20% 8%;
+
+    /* Muted - Gray tones */
+    --muted: 240 15% 25%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent - Cyan/electric blue */
+    --accent: 180 100% 45%;
+    --accent-foreground: 240 20% 8%;
+
+    /* Destructive - Red */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders and input */
+    --border: 240 15% 20%;
+    --input: 240 15% 15%;
+    --ring: 270 85% 55%;
+
+    /* Border radius */
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 240 20% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 270 85% 55%;
+    --sidebar-primary-foreground: 240 20% 8%;
+    --sidebar-accent: 180 100% 45%;
+    --sidebar-accent-foreground: 240 20% 8%;
+    --sidebar-border: 240 15% 20%;
+    --sidebar-ring: 270 85% 55%;
+  }
+
+  .dark {
+    --background: 240 20% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 15% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 15% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 270 85% 55%;
+    --primary-foreground: 240 20% 8%;
+
+    --secondary: 200 90% 50%;
+    --secondary-foreground: 240 20% 8%;
+
+    --muted: 240 15% 25%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 180 100% 45%;
+    --accent-foreground: 240 20% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 15% 20%;
+    --input: 240 15% 15%;
+    --ring: 270 85% 55%;
+
+    --sidebar-background: 240 20% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 270 85% 55%;
+    --sidebar-primary-foreground: 240 20% 8%;
+    --sidebar-accent: 180 100% 45%;
+    --sidebar-accent-foreground: 240 20% 8%;
+    --sidebar-border: 240 15% 20%;
+    --sidebar-ring: 270 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  /* Premium card styling with soft shadows */
+  .card-premium {
+    @apply bg-card rounded-lg border border-border/40 shadow-xl hover:shadow-2xl transition-all duration-300;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+  }
+
+  /* Button variations */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 py-2.5 rounded-lg font-semibold transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-accent/10 text-foreground px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 border border-accent/20;
+  }
+
+  /* Form inputs */
+  .form-input {
+    @apply w-full px-4 py-2.5 bg-input border border-border/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all;
+  }
+}
+
+/* Font family setup for Poppins */
+@supports (font-variation-settings: normal) {
+  .font-poppins {
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
